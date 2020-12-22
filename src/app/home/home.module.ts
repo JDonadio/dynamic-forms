@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { InputComponent } from 'src/app/components/dynamic/input/input.component';
 
 
 @NgModule({
@@ -12,8 +13,12 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ReactiveFormsModule,
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+    InputComponent,
+  ]
 })
 export class HomePageModule {}

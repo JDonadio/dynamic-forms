@@ -1,20 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Dynamic Forms
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="dynamicForm">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card *ngFor="let item of list">
+      <app-input
+        [element]="item"
+        [formControlName]="item.id">
+      </app-input>
+    </ion-card>
+
+    <ion-button expand="block" [disabled]="dynamicForm.invalid">Submit</ion-button>
+    <ion-button expand="block" (click)="print()">Print Form</ion-button>
+  </form>
 </ion-content>
