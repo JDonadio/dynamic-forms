@@ -1,0 +1,13 @@
+<form [formGroup]="inputFormGroup">
+  <ion-item>
+    <ion-label position="stacked">{{ element.label }}</ion-label>
+
+    <ion-input
+      type="{{ element.type }}"
+      formControlName="{{ element.id }}"
+      [value]="value"
+      [attr.disabled]="isDisabled"
+      (input)="onInput($event.target.value)">
+    </ion-input>
+  </ion-item>
+</form>

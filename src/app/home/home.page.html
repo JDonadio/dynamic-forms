@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Dynamic Forms
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="dynamicForm">
+
+    <ion-card *ngFor="let item of list">
+      <app-input
+        [element]="item"
+        [formControlName]="item.id">
+      </app-input>
+    </ion-card>
+
+    <ion-button expand="block" [disabled]="dynamicForm.invalid">Submit</ion-button>
+    <ion-button expand="block" (click)="print()">Print Form</ion-button>
+  </form>
+</ion-content>
